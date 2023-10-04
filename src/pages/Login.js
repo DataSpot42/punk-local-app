@@ -17,8 +17,7 @@ const Login = () => {
             // items: [{item: 0}]          // initialises order with user name
                 
      }         
-        
-        // what function will run?
+        // eslint-disable-next-line
         let response = await createPunk(loginArray)     
         
         navigate (`/Shop/`)  
@@ -32,6 +31,7 @@ const Login = () => {
             DRINK MORE BEER TO CELEBRATE. REPEAT FOREVER.
             </h1>
             <h2>WELCOME TO PLANET BREWDOG</h2>
+            
            <div className="input-btn">
             <form onSubmit={handler}>
                 <input className="input-login"
@@ -43,6 +43,7 @@ const Login = () => {
                 <button className="btnLinks" type="submit">Login</button>
                
             </form>
+            <h2>DEMO WEBSITE NO INFORMATION IS STORED</h2>
             </div>
             </div>
         </div>

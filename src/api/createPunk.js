@@ -1,13 +1,10 @@
 
 
 export const createPunk = async (punk) => {
-    
-    /* console.log(punk.items[0]) */
-    // pass paramter to function
-    // create new object with 'text' key (depending on your Model)
+   
     let obj = { orderNum: punk.orderNum,
         custName: punk.custName,
-        // items: [{}]
+        
         items: [{
             item: 0,    
             productID: 0,

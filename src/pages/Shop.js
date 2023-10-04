@@ -1,20 +1,16 @@
 import '../components/shopcards.css';
-
 import React from 'react';
-
 import { faker } from '@faker-js/faker';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { getPunk } from "../api/getPunk"
 import { editPunk } from "../api/editPunk"
 import { useNavigate } from "react-router-dom"
-/* import Popup from './popup'; */
 import Popup from 'reactjs-popup';
-import { motion } from "framer-motion";   // animation module
+import { motion, AnimatePresence, useIsPresent } from "framer-motion";   // animation module
 import ad from '../images/adbanner.jpg';
 
 const Beer = () => {
-  const { id } = useParams()
+  const isPresent = useIsPresent
   const navigate = useNavigate()
   const [item, setItem] = useState([]);
   const [start, setStart] = useState(0);
@@ -32,12 +28,10 @@ const Beer = () => {
     }
   }
   const handlerAddBasket = async (product) => {
-    console.log(`Add Basket pressed`)
-    let obj2 = await getPunk()  // get curent order 
+    let obj2 = await getPunk()  // get current order 
     console.log(obj2)
     itemNum++
     let amount = 1
-
     let qtyFlag = 0
     let obj = {
       items: [{
@@ -48,7 +42,6 @@ const Beer = () => {
         quantity: amount,
         price: product.price  //format product into Schema layout
       }]
-      
     }
     console.log(obj)
     for (let k = 1; k < obj2.items.length; k++) {
@@ -56,12 +49,11 @@ const Beer = () => {
     }
     console.log(qtyFlag)  //check if this item is already in the basket, if so add to quantity
     if (qtyFlag === 0) {
-      console.log(`adding an item`)
       obj2.items.push(obj.items[0])
       console.log(obj2)
     } // if not add new item to current itams
     // eslint-disable-next-line
-    let response = await editPunk(obj2, id)  // store updated basket in database    
+    let response = await editPunk(obj2)  // store updated basket in database    
 
   }
   const handlerGotoBasket = (e) => {
@@ -102,8 +94,8 @@ const Beer = () => {
           {
             item.slice(start, end).map((info, index) => {
               return (
-
-                <div className="card_item" key={info.id}>
+                
+                <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay: 0.15, duration:0.2}}  className="card_item" key={info.id}>
                   <div className="card_inner">
                     <img className='card_img' src={info.image_url} alt="" />
                   </div>
@@ -124,16 +116,48 @@ const Beer = () => {
                     <button classNamee="smbtnLinks" onClick={() => handlerAddBasket(info)} className="smbtnLinks"> Add</button>
 
 
+                    
+                    <Popup trigger={<button className='smbtnLinks'>More Info</button>} position="bottom">
+                    
+                    <AnimatePresence>
+                      <motion.div layout
+                                        variants={{
+                                            hidden: (i) => ({
+                                                scale: 0,
+                                                y:-100,
+                                                x: -1000
+                                            }),
+                                            visable: (i) => ({
+                                                scale: 1,
+                                                x: 0,
+                                                y: 0,
+                                                transition: {
+                                                    delay: 0.025,
+                                                },
+                                            }),
+                                            removed: {
+                                                scale: 0
+                                            },
+                                        }}
 
-                    <Popup trigger={<button className='smbtnLinks'>More Info</button>} position="right center">
-                      <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="popupclass" >{info.name} <br></br> <br></br> {info.description} </motion.div>
-                    </Popup>   {/* Popup for more info */}
+                                        initial="hidden"
+                                        animate="visable"
+                                        exit="removed"                                        
+                                        style={{
+                                            position: isPresent ? 'hidden' : 'visable '
+                                        }}                    
+                      className="popupclass" >{info.name} <br></br> <br></br> {info.description} </motion.div>
+                     </AnimatePresence> 
+                    </Popup>
+                    
+                    
+                       {/* Popup for more info */}
                   </div>
 
 
 
 
-                </div>
+                </motion.div>
               )
             })
           }

@@ -3,7 +3,7 @@
 const Card = ({ punk, deleteHandler, subQPunkHandler, addQPunkHandler }) => {
 
     return (
-        <div className='card_item'>
+        <div className='basket_card_item'>
             <div className="card_inner">
                 <img className='card_img' src={punk.productImage} alt="" />
             </div>
@@ -13,10 +13,10 @@ const Card = ({ punk, deleteHandler, subQPunkHandler, addQPunkHandler }) => {
             <div>Quantity: {punk.quantity}</div>
             </div>
             
-            <p className="buttonSpace">
-                <button className="smbtnLinks" onClick={() => deleteHandler(punk)}>delete</button>
+            <p className="buttonSpace">                
                 <button className="smbtnLinks" onClick={() => addQPunkHandler(punk)}>Add</button>
                 <button className="smbtnLinks" onClick={() => subQPunkHandler(punk)}>Subtract</button>
+                <button className="smbtnLinks" onClick={() => deleteHandler(punk)}>Delete</button>
             </p>
         </div>
 
