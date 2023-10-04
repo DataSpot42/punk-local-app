@@ -50,8 +50,6 @@ const Basket = () => {
         const fetchPunks = async () => {
             let data = await getPunk()   //get items from storage
             setPunks(data.items)
-
-
         }
         fetchPunks()
     }, [])
@@ -98,8 +96,7 @@ const Basket = () => {
                                         style={{
                                             position: isPresent ? 'static' : 'abosolute '
                                         }}
-                                        key={punk.productID}>
-                                        {console.log(punk.item, i)}
+                                        key={punk.productID}>                                        
                                         <Card key={punk.productID} deleteHandler={deleteHandler} addQPunkHandler={addQPunkHandler} subQPunkHandler={subQPunkHandler} punk={punk} />
                                     </motion.div>))
                                 : <p>loading...</p>   //displays basket items  
