@@ -218,6 +218,30 @@ body {
     
     
 }
+.basket {
+    display: inline-block;
+    color: white;
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: red;
+    border-radius: 50%;
+}
+.bottom-btn {
+    display: flex;    
+    margin: auto;
+    
+    justify-content: center;
+
+}
+.buttonSpace {
+    display: flex;    
+    margin: auto;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
 .moreinfo{
     cursor: pointer;
     border: 0;
@@ -261,7 +285,7 @@ body {
     color: rgb(0, 159, 206);
     background-color: rgba(255, 255, 255, 1);
     border: 1px solid rgba(0, 159, 206, 1);
-    display: inline-block;
+    
 }
 
 .smbtnLinks:hover {
@@ -269,10 +293,56 @@ body {
     box-shadow: 0 0 15px rgba(0, 159, 206, 0.6);
     background-color: rgba(0, 159, 206, 1);
 }
+.basketNum-enter {
+    
+   
+   font-size: 100%;
+    
+       
+    
+  }
+  .basketNum-enter-active {
+    
+    
+    
+    font-size: 140%;
+    transition: font-size 200ms;  
+    
+    
+  }
+  .basketNum-exit {
+    
+    font-size: 100%;
+    
+    
+    
+    
+  }
+  .basketNum-exit-active {
+    
+    font-size: 100%;
+    transition: font-size 200ms;    
+    
+  }
+  
+
+
 
 
 
 /* resposive design */
+@media screen and (max-width: 1434px) {
+    .cards-grid-wrap {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        grid-column-gap: 5px;
+        grid-row-gap: 5px;
+        max-width: 95%;
+    }
+}
+
+
 @media screen and (max-width: 900px) {
     .cards-grid-wrap {
         display: grid;
