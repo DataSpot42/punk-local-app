@@ -4,13 +4,18 @@
     align-content: center;
     margin-top: 10px;
 }
-.popupclass{
-    border: grey 2px solid;
-    background-color: white;
+
+.popupclass {
+    border: rgba(0, 159, 206, 1) 2px solid;
+    background-color: rgb(229, 240, 245);
     float: right;
     max-width: 40%;
-    padding:5px;
+    padding: 0px 10px 10px 10px;
     border-radius: 5px;
+}
+
+.popupheadline {
+    font-weight: 800;
 }
 
 .cards-grid-wrap {
@@ -51,6 +56,7 @@
     height: 300px;
     position: relative;
 }
+
 .basket_card_item {
 
     padding: 10px;
@@ -72,11 +78,14 @@
 }
 
 .navBarContainer {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: 1fr;
     background-color: white;
     width: 100%;
     margin-top: -10px;
     min-height: 150px;
-    display: flex;
+    
     justify-content: center;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2);
 
@@ -84,6 +93,7 @@
 }
 
 .navBarContainer img {
+
     max-height: 100px;
     padding: 10px;
 }
@@ -124,6 +134,14 @@ body {
     background-color: white;
 }
 
+.welcome {
+    margin: 0px 20px 0px 0px;
+    font-size: 20px;
+    grid-column: auto / span 2;
+  
+
+}
+
 .seeMore {
     margin-top: 10px
 }
@@ -134,6 +152,12 @@ body {
     max-height: 200px;
     margin: 0px;
     display: block;
+}
+
+.logo {
+    display: flex;
+    margin: auto;
+    justify-content: center;
 }
 
 .log {
@@ -200,75 +224,96 @@ body {
     align-items: center;
     height: 100%;
 }
-.addto{
- 
-        cursor: pointer;
-        border: 0;
-        border-radius: 4px;
-        font-weight: 600;
-        margin-top: 20px;
-        width: 100%;
-        padding: 5px 0;
-        box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
-        transition: 0.4s;
-        color: rgb(0, 159, 206);
-        background-color: rgba(255, 255, 255, 1);
-        border: 1px solid rgba(0, 159, 206, 1);
-        display: block;
-    
-    
+
+.addto {
+
+    cursor: pointer;
+    border: 0;
+    border-radius: 4px;
+    font-weight: 600;
+    margin-top: 20px;
+    width: 100%;
+    padding: 5px 0;
+    box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
+    transition: 0.4s;
+    color: rgb(0, 159, 206);
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(0, 159, 206, 1);
+    display: block;
+
+
 }
+
 .basket {
     display: inline-block;
     color: white;
-    margin-left: 10px;
+    width: 12%;
+    font-size: 80%;
+    max-height: 100%;
+    align-items: left;
+    justify-self: left;
+    margin-left: 10px;    
     padding-left: 10px;
     padding-right: 10px;
     background-color: red;
-    border-radius: 50%;
-}
-.bottom-btn {
-    display: flex;    
-    margin: auto;
+    border-radius: 55%;
     
+    
+  
+}
+
+.bottom-btn {
+    display: flex;
+    margin: auto;
     justify-content: center;
 
 }
+
 .buttonSpace {
-    display: flex;    
+    display: flex;
     margin: auto;
     flex-direction: row;
     justify-content: center;
 
 }
 
-.moreinfo{
+.moreinfo {
     cursor: pointer;
     border: 0;
     margin-top: 5px;
     text-decoration: none;
     font-weight: 600;
-   
+
     width: 100%;
-    
-   
+
+
     transition: 0.4s;
     color: rgb(0, 159, 206);
     text-underline-offset: 4px;
     display: block;
 }
+
 .moreinfo:hover {
     color: rgb(0, 159, 206, 0.5);
 }
-.next-btn{
-    display: flex;
-    justify-content: center;
-  
-    align-items: center;
+
+.next-btn {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    width: 35%;
+    margin: auto;
+    align-self: center;
+    place-items: center;
+    justify-items: center;
 }
-.next-btn > button{
+
+.next-btn>button {
     margin: 10px 5px;
 }
+
 .smbtnLinks {
     cursor: pointer;
     border: 0;
@@ -285,7 +330,7 @@ body {
     color: rgb(0, 159, 206);
     background-color: rgba(255, 255, 255, 1);
     border: 1px solid rgba(0, 159, 206, 1);
-    
+
 }
 
 .smbtnLinks:hover {
@@ -293,38 +338,49 @@ body {
     box-shadow: 0 0 15px rgba(0, 159, 206, 0.6);
     background-color: rgba(0, 159, 206, 1);
 }
+
+
 .basketNum-enter {
-    
-   
-   font-size: 100%;
-    
-       
-    
-  }
-  .basketNum-enter-active {
-    
-    
+
     
     font-size: 140%;
-    transition: font-size 200ms;  
     
+
+
+
+}
+
+.basketNum-enter-active {
+
+
     
-  }
-  .basketNum-exit {
+    translate: -10px;
+    color: yellow;
+    font-size: 200%;
+    transition: 200ms;
+
+
+}
+
+.basketNum-exit {
+
+    
     
     font-size: 100%;
-    
-    
-    
-    
-  }
-  .basketNum-exit-active {
+
+
+
+
+}
+
+.basketNum-exit-active {
+
     
     font-size: 100%;
-    transition: font-size 200ms;    
-    
-  }
-  
+    transition: font-size 200ms;
+
+}
+
 
 
 
@@ -332,6 +388,9 @@ body {
 
 /* resposive design */
 @media screen and (max-width: 1434px) {
+    .next-btn {
+        width: 60%;
+    }
     .cards-grid-wrap {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -344,6 +403,13 @@ body {
 
 
 @media screen and (max-width: 900px) {
+    .next-btn {
+        width: 77%;
+        
+    }
+    .welcome {
+        font-size: 95%;
+    }
     .cards-grid-wrap {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -353,23 +419,29 @@ body {
         max-width: 95%;
     }
 }
+
 @media screen and (max-width: 540px) {
+    .next-btn {
+        width: 100%;
+    }
+    .welcome {
+        font-size: 60%;
+    }
     .basket_card_item {
         height: 400px;
     }
+   
+
     .card_item {
         height: 370px;
-    }    
+    }
+
     .smbtnLinks {
         font-size: 70%;
         height: 24px;
     }
+
     .popupclass {
         width: 75%;
     }
-}    
-
-
-
-
-
+}

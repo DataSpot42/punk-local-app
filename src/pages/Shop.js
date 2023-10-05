@@ -20,8 +20,7 @@ const Beer = () => {
   const [start, setStart] = useState(0);
   const [end, setEnd] = useState(10);
   const [punks,setPunks] = useState();
-  const duration = 300;
-  const [prodQty,setProdQty] = useState(0);
+  
 
 
   // eslint-disable-next-line
@@ -120,7 +119,7 @@ const Beer = () => {
     <div>
       <img className='adbanner' src={ad} alt="Logo"></img>
       <div className='next-btn'>
-        {punks ? <h2>Welcome {punks.custName}     </h2> :<></> }
+        {punks ? <h2 className="welcome">Welcome {punks.custName}</h2> :<></> }
         <button className='smbtnLinks' onClick={() => handlerNextPage()}> Next Page</button>
         
         <button className='smbtnLinks' onClick={(e) => handlerGotoBasket(e.target.value)}>  
@@ -168,14 +167,14 @@ const Beer = () => {
 
 
                     
-                    <Popup trigger={<button className='smbtnLinks'>More Info</button>} position="bottom">
+                    <Popup trigger={<button className='smbtnLinks'>More Info</button>} position="top">
                     
                     <AnimatePresence>
                       <motion.div layout
                                         variants={{
                                             hidden: (i) => ({
                                                 scale: 0,
-                                                y:-100,
+                                                y:100,
                                                 x: -1000
                                             }),
                                             visable: (i) => ({
@@ -197,7 +196,7 @@ const Beer = () => {
                                         style={{
                                             position: isPresent ? 'hidden' : 'visable '
                                         }}                    
-                      className="popupclass" >{info.name} <br></br> <br></br> {info.description} </motion.div>
+                      className="popupclass" ><p className="popupheadline">{info.name}</p> {info.description} </motion.div>
                      </AnimatePresence> 
                     </Popup>
                     
