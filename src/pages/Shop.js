@@ -86,7 +86,7 @@ const Beer = () => {
   }
 
   const getBeer = async () => {
-    console.log('hello again')
+    
     const response = await fetch("https://api.punkapi.com/v2/beers?page=2&per_page=80");
     const data = await response.json();
     const userData = await getPunk()
@@ -105,7 +105,7 @@ const Beer = () => {
         pricedData[j].quantity=userData.items[k].quantity
       } 
     }
-    console.log(pricedData)
+    
     setItem(pricedData)   // add prices to API product data
   }
 
